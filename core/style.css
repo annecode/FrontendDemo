@@ -1,0 +1,63 @@
+* {
+    /*清除所有元素标签的内外边距*/
+    margin: 0;
+    padding: 0;
+}
+
+/* 只对test类选择器下的p标签生效 */
+.test p {
+    margin: 15px 0;
+    border: 1px;
+}
+
+.normal p {
+    font-weight: normal;
+}
+
+.bold p {
+    font-weight: bold;
+}
+
+.bolder p {
+    font-weight: bolder;
+}
+
+.lighter p {
+    font-weight: lighter;
+}
+
+.number p {
+    font-weight: 900;
+}
+
+.bg-greenyellow {
+    background-color: greenyellow;
+}
+
+.bg-orangered {
+    background-color: orangered;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    font-size: 13px;
+}
+
+#font-type {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+}
+
+p {
+    color: forestgreen;
+    /*  font-family: 'Consolas, "Lucida Console", Monaco, monospace;';
+        font-size: 18px;
+        font-style: italic;
+        /* 简写方式：复合属性 */
+    font: oblique normal 16px "微软雅黑";
+    text-decoration: underline;
+    text-indent: 2em;
+    line-height: 20px;
+}

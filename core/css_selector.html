@@ -5,81 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>css学习</title>
-    <style type="text/css">
-    /*清除所有元素标签的内外边距*/
-    margin: 0;
-    padding: 0;
-    }
-
-    .test p {
-        margin: 15px 0;
-        border: 1px solid #000;
-    }
-
-    .normal p {
-        font-weight: normal;
-    }
-
-    .bold p {
-        font-weight: bold;
-    }
-
-    .bolder p {
-        font-weight: bolder;
-    }
-
-    .lighter p {
-        font-weight: lighter;
-    }
-
-    .number p {
-        font-weight: 700;
-    }
-
-    .bg-greenyellow {
-        background-color: greenyellow;
-    }
-
-    .bg-orangered {
-        background-color: orangered;
-    }
-
-    .box {
-        width: 100px;
-        height: 100px;
-        font-size: 13px;
-    }
-
-    #font-type {
-        text-align: center;
-        color: red;
-        font-weight: ;
-    }
-
-    p {
-        color: darkblue;
-        font-family: 'Consolas, "Lucida Console", Monaco, monospace;';
-        font-size: 17px;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="box bg-orangered font-color">
+    <div class="box bg-orangered">
         <del>这是蓝色字体</del>
     </div>
-    <div class="box bg-greenyellow font-color">
+    <div class="box bg-greenyellow">
         <strong>这是黑色加粗字体</strong>
     </div>
-    <div class="box bg-orangered font-color">
+    <div class="box bg-orangered">
         <em>这是蓝色倾斜字体</em>
     </div>
     <div>
         <h5 class="bg-greenyellow" id="font-type">简介</h5>
         <p>
             2010年1月，主演年代剧《锣鼓巷》，饰演少女时期的李秋萍；6月，在情感偶像剧《佳期如梦》中改变荧屏形象，饰演性格叛逆、迷恋朋克的90后女孩安安 [30] ；同年，在古装剧《红楼梦》中饰演端雅稳重、知书达礼的邢岫烟，并凭借该剧获得观众的关注 [31] 。
-            <span>
-                <ul class="test">
+            <ul class="test">
                 <li class="normal">
                     <strong>正常的字体：</strong>
                     <p>本段文字将显示为正常的字体。</p>
@@ -101,7 +44,10 @@
                     <p>本段文字将显示为粗体。</p>
                 </li>
             </ul>
-            </span>
+        </p>
+        <hr><br>
+        <p style="background-color: yellow; font-style: normal;">
+            简单来说，就是不要让事情发展出乎你的意料，手足无措。对应的方法很间简单：遇到事情先了解它发生的原因，预料它发展的方向，做好当它向不利自己的方面发展时的应对。
         </p>
     </div>
 </body>
