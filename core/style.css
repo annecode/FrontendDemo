@@ -56,8 +56,8 @@ p {
         font-size: 18px;
         font-style: italic;
         /* 简写方式：复合属性 */
-    font: oblique normal 16px "微软雅黑";
-    text-decoration: underline;
+    font: normal normal 16px "微软雅黑";
+    text-decoration: none;
     text-indent: 2em;
     line-height: 20px;
 }
