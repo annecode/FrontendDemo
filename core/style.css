@@ -7,7 +7,7 @@
 /* 只对test类选择器下的p标签生效 */
 .test p {
     margin: 15px 0;
-    border: 1px;
+    border: 1px solid gray;
 }
 
 .normal p {
@@ -60,4 +60,5 @@ p {
     text-decoration: none;
     text-indent: 2em;
     line-height: 20px;
+    text-transform: capitalize;
 }
