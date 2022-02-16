@@ -4,10 +4,28 @@
     padding: 0;
 }
 
-/* 只对test类选择器下的p标签生效 */
-.test p {
+.title_test, h2 {
+    /* 多元素选择器 */
+    color: blue;
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+/* 匹配紧邻的元素，对p元素生效 */
+h5 + p {
+    text-decoration: line-through;
+    background-color: goldenrod;
+}
+
+/* 匹配li下的一级元素h4 */
+li > h4 {
     margin: 15px 0;
     border: 1px solid gray;
+}
+
+/* 只对test类选择器下的p标签生效 */
+.test p {
+    margin: 2px 0;
 }
 
 .normal p {
@@ -30,18 +48,15 @@
     font-weight: 900;
 }
 
-.bg-greenyellow {
-    background-color: greenyellow;
-}
-
-.bg-orangered {
-    background-color: orangered;
+.bg {
+    background-color: #fff888;
 }
 
 .box {
-    width: 100px;
-    height: 100px;
-    font-size: 13px;
+    line-height: 20px;
+    list-style-type: disc;
+    list-style-position: inside;
+    border: 2px solid black;
 }
 
 #font-type {
