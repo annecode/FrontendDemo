@@ -53,10 +53,12 @@ li > h4 {
 }
 
 .box {
-    line-height: 20px;
-    list-style-type: disc;
-    list-style-position: inside;
-    border: 2px solid black;
+    line-height: 26px;
+    list-style-type: circle;
+    list-style-position: outside;
+    border: medium dashed black;
+    width: 80%;
+    margin: 16px 16px 0;
 }
 
 #font-type {
