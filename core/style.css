@@ -67,6 +67,14 @@ li > h4 {
     font-size: 20px;
 }
 
+body {
+    background: url(/resource/正脸.jpeg) fixed center center;
+    margin: 26px 26px;
+    padding: 26px 26px;
+    height: fit-content;
+    width: max-content;
+}
+
 p {
     color: forestgreen;
     /*  font-family: 'Consolas, "Lucida Console", Monaco, monospace;';
