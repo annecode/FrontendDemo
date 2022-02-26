@@ -4,6 +4,9 @@
     padding: 0;
 }
 
+p.baby {
+    color: #f0f;
+}
 .title_test, h2 {
     /* 多元素选择器 */
     color: blue;
@@ -19,8 +22,8 @@ h5 + p {
 
 /* 匹配li下的一级元素h4 */
 li > h4 {
-    margin: 15px 0;
-    border: 1px solid gray;
+    margin: 16px 0;
+    border: medium ridge royalblue;
 }
 
 /* 只对test类选择器下的p标签生效 */
