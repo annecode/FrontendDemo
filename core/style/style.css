@@ -90,3 +90,30 @@ p {
     line-height: 20px;
     text-transform: capitalize;
 }
+
+p:first-letter {
+    color:red;
+    font-size:x-large;
+    text-shadow: 7px 7px 5px blue;
+}
+
+p:first-line {
+    color: greenyellow;
+    font-variant:small-caps;
+}
+
+table {
+    border-collapse: collapse;
+    border-color: red;
+}
+table tr:nth-child(2n) {
+    background-color: yellowgreen;
+}
+
+table tr:nth-child(2n+1) {
+    background-color: yellow;
+}
+
+table tr:hover {
+    background-color: orange;
+}
