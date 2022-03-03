@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    padding: 16px 0;
+    margin: 16px 0;
+    width: auto;
+    height: auto;
+    line-height: 26px;
+    border: 1px solid gray;
+}
