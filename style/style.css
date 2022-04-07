@@ -4,31 +4,54 @@
     padding: 0;
 }
 
-p.baby {
-    color: #f0f;
+body {
+    background: url(/img/笑脸标签.jpeg) fixed center center no-repeat;
+    margin: 13px;
+    padding: 13px;
+    height: fit-content;
+    width: fit-content;
+    /* border: 1px solid #f00; */
+
 }
-.title_test, h2 {
+
+div {
+    margin: 13px;
+    padding: 7px;
+    width: fit-content;
+    /* border: 1px solid #f0f; */
+}
+
+p {
+    color: black;
+    /*  font-family: 'Consolas, "Lucida Console", Monaco, monospace;';
+        font-size: 18px;
+        font-style: italic;
+        /* 简写方式：复合属性 */
+    font: normal normal 16px "微软雅黑";
+    text-decoration: none;
+    text-indent: 2em;
+    line-height: 20px;
+    text-transform: capitalize;
+    word-wrap: break-word;
+}
+
+p:first-letter {
+    color: red;
+    font-size: 20px;
+    text-shadow: 3px 1px 1px yellowgreen;
+}
+
+p:first-line {
+    color: green;
+}
+
+.title_test,
+h2 {
     /* 多元素选择器 */
     color: blue;
     font-size: 17px;
     text-decoration: underline;
-}
-
-/* 匹配紧邻的元素，对p元素生效 */
-h5 + p {
-    text-decoration: line-through;
-    background-color: goldenrod;
-}
-
-/* 匹配li下的一级元素h4 */
-li > h4 {
-    margin: 16px 0;
-    border: medium ridge royalblue;
-}
-
-/* 只对test类选择器下的p标签生效 */
-.test p {
-    margin: 2px 0;
+    text-indent: 0em;
 }
 
 .normal p {
@@ -51,17 +74,12 @@ li > h4 {
     font-weight: 900;
 }
 
-.bg {
-    background-color: #fff888;
-}
-
 .box {
     line-height: 26px;
-    list-style-type: circle;
-    list-style-position: outside;
-    border: medium dashed black;
-    width: 80%;
-    margin: 16px 16px 0;
+    list-style-type: disc;
+    list-style-position: inside;
+    width: auto;
+    padding: 6px;
 }
 
 #font-type {
@@ -70,50 +88,26 @@ li > h4 {
     font-size: 20px;
 }
 
-body {
-    background: url(/resource/正脸.jpeg) fixed center center;
-    margin: 26px 26px;
-    padding: 26px 26px;
-    height: fit-content;
-    width: max-content;
-}
-
-p {
-    color: forestgreen;
-    /*  font-family: 'Consolas, "Lucida Console", Monaco, monospace;';
-        font-size: 18px;
-        font-style: italic;
-        /* 简写方式：复合属性 */
-    font: normal normal 16px "微软雅黑";
-    text-decoration: none;
-    text-indent: 2em;
-    line-height: 20px;
-    text-transform: capitalize;
-}
-
-p:first-letter {
-    color:red;
-    font-size:x-large;
-    text-shadow: 7px 7px 5px blue;
-}
-
-p:first-line {
-    color: greenyellow;
-    font-variant:small-caps;
-}
-
 table {
     border-collapse: collapse;
-    border-color: red;
+    border-color: gray;
+    text-align: center;
 }
+
 table tr:nth-child(2n) {
-    background-color: yellowgreen;
+    background-color: #ffffff;
 }
 
 table tr:nth-child(2n+1) {
-    background-color: yellow;
+    background-color: #f6f4f0;
 }
 
 table tr:hover {
     background-color: orange;
+}
+
+table th {
+    color: white;
+    font-size: large;
+    background-color: #555555;
 }
