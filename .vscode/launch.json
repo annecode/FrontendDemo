@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "name": "Launch Chrome",
             "request": "launch",
-            "name": "Open css_selector.html",
-            "file": "d:\\PycharmProjects\\FrontendDemo\\core\\css_selector.html"
+            "type": "chrome",
+            "url": "http://localhost:5500/core/js_demo/"
         }
     ]
 }

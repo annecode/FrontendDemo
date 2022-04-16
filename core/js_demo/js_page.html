@@ -11,23 +11,50 @@
 
 <body>
     <div>
-        <h3>1. js运算符练习</h3><br />
-        <p>设置 y=5, 计算出 x=++y, 并显示结果。</p>
-        <button onclick="varModule()">点我</button>
-        <p id="demo"></p>
-        <script src="./js_script.js"></script>
-        <p><strong>注意:</strong>两个值 x 和 y 都受到影响。</p>
-        <br />
-        <hr />
-    </div>
-    <div>
-        <h3>2. js方法练习</h3>
-        <script src="./bulb.js"></script>
-        <img id="myimage" onclick="changeImage()" src="https://www.runoob.com/images/pic_bulboff.gif" width="100"
-            height="180"><br />
-        <p>点击灯泡就可以打开或关闭这盏灯</p>
-        <br />
-        <hr />
+        <span>
+            <h3>1. 操作符与运算符</h3>
+            <p>点击按钮，获得计算结果：</p>
+            <button onclick="varModule()">点击此处</button>
+            <p id="demo1"></p>
+            <button onclick="this.innerHTML=Date()">这是测试button</button>
+            <script src="./js_script.js"></script>
+            <hr />
+        </span>
+        <span>
+            <h3>2. if语法</h3>
+            <p>点击按钮，获得if判断结果：</p>
+            <button
+                onclick="ifModule(5, 6)">点击此处</button>
+            <p id="demo2"></p>
+            <script src="./js_script.js"></script>
+            <hr />
+        </span>
+        <span>
+            <h3>3. switch语法</h3>
+            <p>点击按钮，获得基于时间的问候：</p>
+            <button onclick="switchModule()">点击此处</button>
+            <p id="demo3"></p>
+            <script src="./js_script.js"></script>
+            <hr />
+        </span>
+        <span>
+            <h3>4. for语法</h3>
+            <p>点击按钮，获得循环计算结果：</p>
+            <button onclick="loopModule()">点击此处</button>
+            <p id="demo41"></p>
+            <p id="demo42"></p>
+            <p id="demo43"></p>
+            <script src="./js_script.js"></script>
+            <hr />
+        </span>
+        <span>
+            <h3>demo1：灯泡开关</h3>
+            <script src="./bulb.js"></script>
+            <img id="myimage" onclick="changeImage()" src="https://www.runoob.com/images/pic_bulboff.gif" width="100"
+                height="180">
+            <p>点击灯泡就可以打开或关闭这盏灯！</p>
+            <hr />
+        </span>
     </div>
 </body>
 

@@ -7,10 +7,27 @@ div {
     /* border: 1px solid gray; */
     padding: 5px;
     margin: 10px;
-    width: fit-content;
+    width: 50%;
 }
 
 h3 {
-    line-height: 20px;
-    color: green;
+    color: darkgreen;
+}
+
+p, img, button {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+span {
+    display: block;
+    position: relative;
+    padding: 5px;
+}
+
+input {
+    width: fit-content;
 }
