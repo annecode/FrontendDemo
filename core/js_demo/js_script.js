@@ -81,7 +81,7 @@ function loopModule() {
     document.getElementById("demo42").innerHTML = "while循环：偶数之和=" + res;
 
     // do-while循环
-    res = 0; 
+    res = 0;
     do {
         if (n % 2 == 1) {
             res += n;
@@ -100,4 +100,42 @@ function loopModule() {
         str += "\n";
     }
     console.log(str);
+}
+
+function arrayModule() {
+    var array2 = [2, 3, 1, 5];
+    var temp = 0;
+    for (i = 0; i < array2.length; i++) {
+        if (temp < array2[i]) {
+            temp = array2[i];
+        }
+    }
+    document.getElementById("demo51").innerHTML = "数组中最大为值：" + temp;
+    
+    var hege = ["Cecilie", "Lone"];
+    var stale = ["Emil", "Tobias", "Linus"];
+    var children = ["Cecilie", "Lone"];
+    var family = hege.concat(stale, children);
+    document.getElementById("demo52").innerHTML = "hege、stale、children数组合并结果为：" + family;
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var res = document.getElementById("demo53").innerHTML = "数组元素拼接成字符串为：" + fruits.join(" | ");
+    console.log(typeof res);
+    fruits.pop();
+    document.getElementById("demo54").innerHTML = "删除数组fruits最后一个元素后：" + fruits;
+    fruits.unshift("anne", "baby");
+    document.getElementById("demo55").innerHTML = "在数组fruits开头添加2个元素后：" + fruits;    
+}
+
+// 构造函数方式创建数组，构建新Javascript对象的属性和方法
+Array.prototype.arrayCase = function () {
+    for (i = 0; i < this.length; i++) {
+        this[i] = this[i].toUpperCase();
+    }
+}
+
+function arrayFunction() {
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.arrayCase();
+    document.getElementById("demo56").innerHTML = "数组元素转换为大写后：" + fruits;
 }
