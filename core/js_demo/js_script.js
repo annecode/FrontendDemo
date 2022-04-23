@@ -111,7 +111,7 @@ function arrayModule() {
         }
     }
     document.getElementById("demo51").innerHTML = "数组中最大为值：" + temp;
-    
+
     var hege = ["Cecilie", "Lone"];
     var stale = ["Emil", "Tobias", "Linus"];
     var children = ["Cecilie", "Lone"];
@@ -124,7 +124,7 @@ function arrayModule() {
     fruits.pop();
     document.getElementById("demo54").innerHTML = "删除数组fruits最后一个元素后：" + fruits;
     fruits.unshift("anne", "baby");
-    document.getElementById("demo55").innerHTML = "在数组fruits开头添加2个元素后：" + fruits;    
+    document.getElementById("demo55").innerHTML = "在数组fruits开头添加2个元素后：" + fruits;
 }
 
 // 构造函数方式创建数组，构建新Javascript对象的属性和方法
