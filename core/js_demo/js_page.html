@@ -23,8 +23,7 @@
         <span>
             <h3>2. if语法</h3>
             <p>点击按钮，获得if判断结果：</p>
-            <button
-                onclick="ifModule(5, 6)">点击此处</button>
+            <button onclick="ifModule(5, 6)">点击此处</button>
             <p id="demo2"></p>
             <script src="./js_script.js"></script>
             <hr />
@@ -68,6 +67,43 @@
             <p>点击灯泡就可以打开或关闭这盏灯！</p>
             <hr />
         </span>
+    </div>
+    <div>
+        <h3>JS对象练习区域</h3>
+        <!-- this 指向了接收事件的 HTML 元素 -->
+        <button onclick="this.style.display='none'">点我我就消失啦！</button>
+        <script>
+            var person = {
+                name: "anne",
+                age: 20,
+                sex: "female",
+                hobby: function () {
+                    return this.name + " " + this.age;
+                }
+            };
+            console.log(person.name);
+            console.log(person["name"]);
+            console.log(person.hobby);
+            console.log(person.hobby());
+            // window.alert(person.age);
+            function func() {
+                console.log(this);  // this指向全局对象window；
+            }
+            func();
+
+            // 显示函数绑定， call和aplly允许切换函数执行的上下文环境（context），即 this 绑定的对象
+            var person1 = {
+                fullName: function () {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+            var person2 = {
+                firstName: "John",
+                lastName: "Doe",
+            }
+            console.log(person1.fullName.call(person2));  // 返回 "John Doe"
+            console.log(person1.fullName());    //返回"undefined undefined"
+        </script>
     </div>
 </body>
 
