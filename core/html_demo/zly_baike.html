@@ -42,8 +42,42 @@
 
 <body>
     <div>
-        <h3>目录</h3> 
-        <span><input value="请输入内容"><button onclick="alert('现在还不可以搜索呢')">搜索</button></span>
+        <h3>目录</h3>
+        <form action="xxx.php" method="post" , name="name1">
+            <!-- text 文本框 用户可以在里面输入任何文字 -->
+            <label for="cname">用户名：</label> <input type="text" name="username" value="请输入用户名" maxlength="6" id="cname"> <br>
+            <!-- password 密码框 用户看不见输入的密码 -->
+            <label for="pwd">密码：</label> <input type="password" name="password" maxlength="6" id="pwd"> <br>
+            <!-- radio 单选按钮，可以实现多旋翼，name是表单元素名字，性别单选按钮必须有相同的名字name，才可实现多选一         -->
+            <!-- 单选按钮和复选框可以设置checked属性，页面打开时可以默认选中这个按钮 -->
+            性别：女 <input type="radio" name="sex" value="男" checked="checked"> 男 <input type="radio" name="sex" value="女"> <br>
+            <!-- checkbox 复选框 可以实现多选 -->
+            爱好：吃饭<input type="checkbox" value="吃饭" checked="checked"> 睡觉 <input type="checkbox" value="睡觉"> <br>
+            <!-- 点击提交按钮，可以把表单域form 里面的表单元素 里面的值 提交后后台服务器 -->
+            <input type="submit" value="免费注册"> <br>
+            <!-- 重置按钮 可以还原表单元素初始的默认状态 -->
+            <input type="reset" value="重置">
+            <!-- 普通按钮 button 后期结合js使用 -->
+            <input type="button" value="发送验证码" onclick="alert('现在不可以发送呢~~~')"> <br>
+            <!-- 文件域 使用场景 上传文件使用的 -->
+            <input type="file"> <br>
+            <!-- 下拉列表 selected 默认选中项 -->
+            <select name="country" id="country">
+                <option>中国</option>
+                <option>美国</option>
+                <option>俄罗斯</option>
+                <option>印度尼西亚</option>
+                <option>英国</option>
+                <option selected="selected">泰国</option>
+            </select>
+            <!-- textarea文本域，多行输入，实际开发不会设置cols和rows属性，一般通过css设置 -->
+            <textarea cols="20" rows="5">这是一个测试值呢</textarea>
+            
+        </form>
+        
+
+        <hr>
+        <span><input type="text" value="请输入内容"><button onclick="alert('现在还不可以搜索呢')">搜索</button></span>
         <ul class="box">
             <li><a href="#test1" id="test11" target="_self">早年经历</a></li>
             <li><a href="#test2" id="test12" target="_self">演艺经历</a></li>
@@ -53,7 +87,8 @@
         <hr />
         <h3>基本信息</h3>
         <p>
-            <a href="https://baike.baidu.com/item/%E8%B5%B5%E4%B8%BD%E9%A2%96/10075976?fr=aladdin#1", target="_self">赵丽颖</a>，1987年10月16日出生于河北省廊坊市，中国内地影视女演员。
+            <a href="https://baike.baidu.com/item/%E8%B5%B5%E4%B8%BD%E9%A2%96/10075976?fr=aladdin#1" ,
+                target="_self">赵丽颖</a>，1987年10月16日出生于河北省廊坊市，中国内地影视女演员。
         </p>
         <p>
             2006年，因获得《雅虎搜星》比赛冯小刚组冠军而进入演艺圈 [2] ；同年，在冯小刚执导的《跪族篇》中担任女主角 [3] 。2011年，因在古装剧《新还珠格格》中饰演晴儿被更多观众认识 [4]
