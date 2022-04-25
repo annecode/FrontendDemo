@@ -73,6 +73,9 @@
         <!-- this 指向了接收事件的 HTML 元素 -->
         <button onclick="this.style.display='none'">点我我就消失啦！</button>
         <script>
+            filtArray();
+            func();
+            
             var person = {
                 name: "anne",
                 age: 20,
@@ -81,15 +84,9 @@
                     return this.name + " " + this.age;
                 }
             };
-            console.log(person.name);
-            console.log(person["name"]);
-            console.log(person.hobby);
-            console.log(person.hobby());
+            console.log(person.name, person["name"]);
+            console.log(person.hobby(), person.hobby);
             // window.alert(person.age);
-            function func() {
-                console.log(this);  // this指向全局对象window；
-            }
-            func();
 
             // 显示函数绑定， call和aplly允许切换函数执行的上下文环境（context），即 this 绑定的对象
             var person1 = {
@@ -100,9 +97,37 @@
             var person2 = {
                 firstName: "John",
                 lastName: "Doe",
-            }
+            };
             console.log(person1.fullName.call(person2));  // 返回 "John Doe"
             console.log(person1.fullName());    //返回"undefined undefined"
+
+            function func() {
+                console.log(this);  // this指向全局对象window；
+            }
+
+            function filtArray() {
+                var counts = [2, 45, 22, 76, 1, 15];
+                var newCounts = [];
+                var target = prompt("请输入目标值", 30);
+                // console.log(typeof target);
+                for (var i = 0; i < counts.length; i++) {
+                    if (counts[i] > target) {
+                        newCounts.push(counts[i]);
+                    }
+                }
+                console.log("过滤大于" + target + "的元素结果为：" + newCounts);
+            }
+
+            var s = "Simon";
+            String.prototype.reversed = function () {
+                var r = "";
+                for (var i = this.length - 1; i >= 0; i--) {
+                    r += this[i];
+                }
+                return r;
+            }
+            console.log(s.reversed());
+            
         </script>
     </div>
 </body>

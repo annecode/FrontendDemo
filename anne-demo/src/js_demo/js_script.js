@@ -105,7 +105,7 @@ function loopModule() {
 function arrayModule() {
     var array2 = [2, 3, 1, 5];
     var temp = 0;
-    for (i = 0; i < array2.length; i++) {
+    for (var i = 0; i < array2.length; i++) {
         if (temp < array2[i]) {
             temp = array2[i];
         }
@@ -129,7 +129,7 @@ function arrayModule() {
 
 // 构造函数方式创建数组，构建新Javascript对象的属性和方法
 Array.prototype.arrayCase = function () {
-    for (i = 0; i < this.length; i++) {
+    for (var i = 0; i < this.length; i++) {
         this[i] = this[i].toUpperCase();
     }
 }
