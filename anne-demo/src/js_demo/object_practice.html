@@ -1,0 +1,77 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-05-08 22:00:47
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-05-08 23:32:58
+ * @version: 1.0
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS对象练习</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            // 变量：单独声明
+            // 属性：对象里的变量赋值，单独存在
+            uname: "anne",
+            age: 17,
+            sex: "female",
+            getHobby: function (hobby = "apple") {
+                // 方法: 在对象里面调用时，使用obj.value，或oj["value"];
+                // 函数：单独声明的，并且调用的函数名()单独存在的
+                // alert("anne like eat fruits");
+                return hobby;
+            }
+        }
+        console.log(obj.uname, obj.getHobby(), obj["age"]);
+
+        // 利用new Object创建对象
+        var obj1 = new Object();
+        obj1.uname = "wandou";
+        obj1.age = "19";
+        obj1.sex = "female";
+        obj1.getHobby = function (hobby) {
+            return hobby;
+        }
+        console.log(obj1.uname, obj1["age"], obj1.getHobby("orange"));
+
+        // 构造函数：把对象里相同的属性和方法抽象出来，封装到函数里
+        function UserInfo(uname, age, sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.getHobby = function (hobby) {
+                return uname + "爱吃的水果是" + hobby;
+            }
+        }
+        var anne_info = new UserInfo("派蒙", "2", "female");
+        console.log(anne_info.getHobby("cherry") + "，年龄是" + anne_info.age + "，性别是" + anne_info["sex"]);
+
+        function Person(name, sex) {
+            this.name = name;
+            this.sex = sex;
+        }
+        //Person构造函数添加方法，添加在构造函数的原型prototype上
+        Person.prototype.showName = function () {
+            alert("我的名字叫做" + this.name);
+        }
+        Person.prototype.showSex = function () {
+            alert("我的性别是" + this.sex);
+        }
+        var p1 = new Person("red", "女");
+        p1.showName();
+        p1.showSex();
+
+
+
+    </script>
+</body>
+
+</html>
