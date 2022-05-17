@@ -6,10 +6,11 @@
     "configurations": [
 
         {
-            "name": "Launch Chrome",
+            "name": "使用本机Chrome调试",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:8080/anne-demo/src/js_demo/object_practice.html"
+            "webRoot": "${workspaceFolder}",
+            "url": "${workspaceRoot}/anne-demo/src/js_demo/js_page.html"
         }
     ]
 }
