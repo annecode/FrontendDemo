@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-08 22:00:47
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-08 23:32:58
+ * @LastEditTime: 2022-05-09 00:04:46
  * @version: 1.0
  * @Description: 
 -->
@@ -30,7 +30,7 @@
                 return hobby;
             }
         }
-        console.log(obj.uname, obj.getHobby(), obj["age"]);
+        console.log(obj.uname + "喜欢" + obj.getHobby() + "，年龄是" + obj["age"]);
 
         // 利用new Object创建对象
         var obj1 = new Object();
@@ -40,11 +40,11 @@
         obj1.getHobby = function (hobby) {
             return hobby;
         }
-        console.log(obj1.uname, obj1["age"], obj1.getHobby("orange"));
+        console.log(obj1.uname + "年龄是" + obj1["age"] + "，喜欢" + obj1.getHobby("orange"));
 
         // 构造函数：把对象里相同的属性和方法抽象出来，封装到函数里
         function UserInfo(uname, age, sex) {
-            this.name = uname;
+            this.uname = uname;
             this.age = age;
             this.sex = sex;
             this.getHobby = function (hobby) {
@@ -53,22 +53,15 @@
         }
         var anne_info = new UserInfo("派蒙", "2", "female");
         console.log(anne_info.getHobby("cherry") + "，年龄是" + anne_info.age + "，性别是" + anne_info["sex"]);
-
-        function Person(name, sex) {
-            this.name = name;
-            this.sex = sex;
+        // 对象属性和属性值进行遍历
+        for(var k in anne_info) {
+            if (k == "getHobby") {
+                console.log(k + ": " + anne_info[k]("apple"));
+            }
+            else {
+                console.log(k + ": " + anne_info[k]); // k:打印对象的属性名; obj[k]:打印对象的属性值
+            }
         }
-        //Person构造函数添加方法，添加在构造函数的原型prototype上
-        Person.prototype.showName = function () {
-            alert("我的名字叫做" + this.name);
-        }
-        Person.prototype.showSex = function () {
-            alert("我的性别是" + this.sex);
-        }
-        var p1 = new Person("red", "女");
-        p1.showName();
-        p1.showSex();
-
 
 
     </script>
