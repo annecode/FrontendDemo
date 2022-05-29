@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-17 11:49:53
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-26 22:37:47
+ * @LastEditTime: 2022-05-29 18:20:04
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,8 @@
     // document.querySelector('html').onclick = function () {
     //   alert("喷火的锅巴");
     // }
+    
+    // 构造函数
     function Person(name, sex) {
       this.name = name;
       this.sex = sex;
@@ -34,7 +36,7 @@
     p1.showName();
     p1.showSex();
 
-
+    // 工厂模式
     function Animal(name, color) {
       var obj = new Object();
       obj.name = name;

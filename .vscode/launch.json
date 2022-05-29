@@ -10,7 +10,7 @@
             "request": "launch",
             "type": "chrome",
             "webRoot": "${workspaceFolder}",
-            "url": "${workspaceRoot}/anne-demo/src/js_demo/事件练习.html"
+            "url": "${workspaceRoot}/anne-demo/src/es6_demo/es6_index.html"
         }
     ]
 }
