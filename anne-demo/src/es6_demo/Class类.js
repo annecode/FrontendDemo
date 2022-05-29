@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-29 17:47:11
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-29 23:47:24
+ * @LastEditTime: 2022-05-29 23:49:41
  */
 
 /* 在ES6中，class (类)作为对象的模板被引入，可以通过 class 关键字定义类；
