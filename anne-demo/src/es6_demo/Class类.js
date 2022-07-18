@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-29 17:47:11
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-29 23:49:41
+ * @LastEditTime: 2022-07-18 17:00:25
  */
 
 /* 在ES6中，class (类)作为对象的模板被引入，可以通过 class 关键字定义类；
@@ -252,7 +252,7 @@ class Person1 {
 通过extends实现类的继承
 子类constructor方法中必须有super，且必须出现在this之前
 调用父类构造函数，只能出现在子类的构造函数中
-调用父类方法，super座位对象，在普通方法中，指向父类的原型对象，在静态方法中，指向父类
+调用父类方法，super作为对象，在普通方法中，指向父类的原型对象，在静态方法中，指向父类
 */
 class Father {
     constructor() {}
