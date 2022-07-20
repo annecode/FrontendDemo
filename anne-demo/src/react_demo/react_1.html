@@ -1,43 +1,74 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-04-25 16:18:28
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-20 15:44:36
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>react学习初始知识</title>
+    <title>React被加载为脚本标记</title>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <!-- 引入react-dom，用于支持react操作DOM -->
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="./js/babel.min.js"></script>
 </head>
 
 <body>
-
-    <h2>Add React in One Minute</h2>
-    <p>This page demonstrates using React with no build tooling.</p>
-    <p>React is loaded as a script tag.</p>
-
+    <h2>新增react</h2>
+    <p>本页面演示了在没有构建工具的情况下使用React.</p>
     <p>
-        This is the first comment.
-        <!-- We will put our React component inside this div. -->
-    <div class="like_button_container" data-commentid="1"></div>
+        这是第一条评论.
+        <!-- 把React组件放在这个div中. -->
+        <div class="like_button_container" data-commentid="1"></div>
     </p>
-
     <p>
-        This is the second comment.
-        <!-- We will put our React component inside this div. -->
-    <div class="like_button_container" data-commentid="2"></div>
+        这是第二条评论.
+        <div class="like_button_container" data-commentid="2"></div>
     </p>
-
     <p>
-        This is the third comment.
-        <!-- We will put our React component inside this div. -->
-    <div class="like_button_container" data-commentid="3"></div>
+        这是第三条评论.
+        <div class="like_button_container" data-commentid="3"></div>
     </p>
-
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-
-    <!-- Load our React component. -->
+    <!-- 加载React组件. -->
     <script src="like_button.js"></script>
+</body>
+
+<body>
+    <!-- 准备好一个“容器” -->
+    <div id="test"></div>
+    <script type="text/babel"> /* 此处一定要写babel */
+        // 也可写作：const VDOM = <h2 id="title"><span>这是JSX方式创建虚拟DOM</span></h2>
+        const VDOM = (  
+            <h2 id="title">
+                <span>Hello, React——这是JSX方式创建虚拟DOM</span>
+            </h2>
+        )
+        const TDOM = document.getElementById('test')
+        
+        //2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM, document.getElementById('test'))
+        console.log("虚拟DOM", VDOM);
+        console.log("真实DOM", TDOM);
+        // debugger;
+        // console.log(typeof VDOM);
+        // console.log(VDOM instanceof Object);
+
+    </script>
+
+    <!-- 准备好一个“容器” -->
+    <div id="test1"></div>
+    <script type="text/javascript">
+        //1.创建虚拟DOM
+        const VDOM1 = React.createElement('h2', { id: 'title1' }, React.createElement('span', {}, 'Hello, React——这是纯JS方式创建虚拟DOM'))
+        //2.渲染虚拟DOM到页面
+        ReactDOM.render(VDOM1, document.getElementById('test1'))
+    </script>
 
 </body>
 
