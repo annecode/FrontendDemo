@@ -1,4 +1,4 @@
 {
     "js/ts.implicitProjectConfig.experimentalDecorators": true,
-    "livePreview.defaultPreviewPath": "/anne-demo/src/react_demo/react_2.html"
+    "livePreview.defaultPreviewPath": "/anne-demo/src/js_demo/原生事件绑定.html"
 }

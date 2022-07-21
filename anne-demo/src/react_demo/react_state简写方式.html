@@ -1,0 +1,47 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-21 14:19:59
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-21 17:46:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>组件实例三大核心属性之state简写方式-推荐</title>
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        // 1、创建组件
+        class Weather extends React.Component {
+
+            state = { isHot: true, wind: '微风' };
+            // render调用几次？ ——1+n次，1是初始化那次，n是状态更新的次数
+            render() {
+                // 读取状态
+                const { isHot, wind } = this.state
+                return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}, {wind}</h1>
+            }
+            // 自定义方法——要用赋值语句+箭头函数的形式来写
+            changeWeather = () => {
+                // debugger;
+                const isHot = this.state.isHot
+                // 状态不可直接更改，必须通过内置API-setSate去更改，且更新是一种合并，不是替换
+                this.setState({ isHot: !isHot })
+            }
+        }
+        // 2、渲染组件到页面
+        ReactDOM.render(<Weather />, document.getElementById('test'))
+
+
+    </script>
+</body>
+
+</html>

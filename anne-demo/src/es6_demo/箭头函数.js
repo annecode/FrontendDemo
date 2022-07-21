@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-28 11:27:16
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-28 13:16:14
+ * @LastEditTime: 2022-07-21 17:45:24
  */
 
 // 箭头函数基本语法：参数 => 函数体
@@ -42,13 +42,14 @@ f5();
 // 箭头函数体中的 this 对象，是定义函数时的对象，而不是使用函数时的对象；
 // 不可以作为构造函数，也就是不能使用 new 命令，否则会报错; 
 function f6() {
-    console.log("====>" + this);
+    // 定义时，this绑定的是f6中的this对象
+    console.log("====> f6" + this);
+    // debugger;
     setTimeout(() => {
-        // 定义时，this绑定的是f6中的this对象
-        console.log(this.a + this);
+        console.log("====> f6调用", this.ff + this);
     }, 1);
 }
-var a = 10;
+var ff = 5;
 f6();
 
 var person = {
@@ -56,7 +57,7 @@ var person = {
     'sayHello': function() {
         // 此this指向的Person
         console.log(this.age + this);
-        // setTimeout是Window对象提供的，故this指向Window
+        // setTimeout是Window对象提供的，故this指向Window，最后才执行
         setTimeout(function () {
             console.log(this.age + this);
         });

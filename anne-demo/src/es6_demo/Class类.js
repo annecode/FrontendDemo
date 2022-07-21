@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-29 17:47:11
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-07-18 17:00:25
+ * @LastEditTime: 2022-07-21 15:29:47
  */
 
 /* 在ES6中，class (类)作为对象的模板被引入，可以通过 class 关键字定义类；
@@ -17,7 +17,7 @@ class 的本质是 function；
 // 1、类定义：类表达式可以为匿名或命名
 // 1）匿名类
 let Example = class {
-    constructor(a) {
+    constructor(a) {   // 构造器
         this.a = a;
     }
 }
@@ -101,6 +101,7 @@ class Test1 {
     }
 }
 Test1.sum(2, 2);
+Test1.sum.call({a:1})  // call可以更改函数里的this指向
 
 // 11、原型方法
 class Test2 {
@@ -194,10 +195,10 @@ console.log(Object.getPrototypeOf(res1));
 // }
 // let res3 = new Example11();
 // res3.sum(1, 2);
-// // evaluated logMethod 1
-// // evaluated logMethod 2
-// // excuted logMethod 2s
-// // excuted logMethod 1
+// evaluated logMethod 1
+// evaluated logMethod 2
+// excuted logMethod 2s
+// excuted logMethod 1
 
 
 // 封装与继承：getter/setter
@@ -327,3 +328,20 @@ var Father2 = {
 Object.setPrototypeOf(Child2.prototype, Father2);
 console.log(Object.getPrototypeOf(Child2));
 console.log(Object.getPrototypeOf(Father2));
+
+class People {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    study() {
+        // study放在哪里？ ——类的原型对象上，供实例使用
+        // 通过People实例调用study时，study中的this就是People实例
+        console.log(this);
+    }
+}
+
+const p1 = new People('tom', 18);
+p1.study();  // 通过实例调用study方法
+const x = p1.study;
+x();    // 直接调用study方法；在class类中的所有自定义方法，会自动在方法局部开启严格模式，默认返回undefined，而不是window
