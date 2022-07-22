@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-07-21 17:46:23
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-07-21 18:56:03
+ * @LastEditTime: 2022-07-22 10:19:23
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,6 @@
 <body>
     <div id="test1"></div>
     <div id="test2"></div>
-    <div id="test3"></div>
     
     <script type="text/babel">
 
@@ -35,11 +34,12 @@
             }
         }
 
+        // 批量传递props
         ReactDOM.render(<Person name="tom" age="18" sex="女"/>, document.getElementById('test1'))
-        ReactDOM.render(<Person name="anne" age="22" sex="男"/>, document.getElementById('test2'))
         const p = {name: "tony", sex: "女", age: 8}
-        // 有react库和babel形式，则可以直接用拓展运算符，不需要加{}，下行代码中的{}是指js表达式要加的符号，不是拓展运算符针对对象要求的符号
-        ReactDOM.render(<Person {...p}/>, document.getElementById('test3'))
+        // 有react库和babel形式，则可以直接用拓展运算符，不需要加{}
+        // 下行代码中的{}是指js表达式要加的符号，不是拓展运算符针对对象要求的符号
+        ReactDOM.render(<Person {...p}/>, document.getElementById('test2'))
 
     </script>
 </body>
