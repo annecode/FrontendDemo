@@ -2,28 +2,31 @@
  * @Author: anne.yang
  * @Date: 2022-07-21 17:46:23
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-07-22 10:40:25
+ * @LastEditTime: 2022-07-22 13:58:57
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>组件实例三大核心属性之props</title>
+    <title>组件实例三大核心属性之props标准方式</title>
     <script type="text/javascript" src="./js/react.development.js"></script>
     <script type="text/javascript" src="./js/react-dom.development.js"></script>
     <script type="text/javascript" src="./js/babel.min.js"></script>
+    <script type="text/javascript" src="./js/prop-types.js"></script>
 </head>
+
 <body>
     <div id="test1"></div>
     <div id="test2"></div>
-    
+
     <script type="text/babel">
 
         class Person extends React.Component {
             render() {
-                console.log(this);
-                const {name, sex, age} = this.props
+                // console.log(this);
+                const { name, sex, age } = this.props
                 return (
                     <ul>
                         <li>姓名：{name}</li>
@@ -33,14 +36,28 @@
                 )
             }
         }
+        function speak() {}
+
+        // 对标签属性进行类型、必要性的限制
+        Person.propTypes = {
+            name: PropTypes.string.isRequired, // 限制name必传，且为字符串
+            sex: PropTypes.string, // 限制sex为字符串
+            age: PropTypes.number, // 限制age为number
+            speak: PropTypes.func  // 限制speak为函数
+        }
+        Person.defaultProps = {
+            sex: '未知', // 默认值为“未知”
+            age: 18  // 默认值为18
+        }
 
         // 批量传递props
-        ReactDOM.render(<Person name="tom" age="18" sex="女"/>, document.getElementById('test1'))
-        const p = {name: "tony", sex: "女", age: 8}
+        ReactDOM.render(<Person name="anne" sex="男" speak={speak} />, document.getElementById('test1'))
+        const p = { name: "tony", sex: "女", age: 20 }
         // 有react库和babel形式，则可以直接用拓展运算符，不需要加{}
         // 下行代码中的{}是指js表达式要加的符号，不是拓展运算符针对对象要求的符号
-        ReactDOM.render(<Person {...p}/>, document.getElementById('test2'))
+        ReactDOM.render(<Person {...p} />, document.getElementById('test2'))
 
     </script>
 </body>
+
 </html>
