@@ -1,4 +1,9 @@
 {
     "js/ts.implicitProjectConfig.experimentalDecorators": true,
-    "livePreview.defaultPreviewPath": "/anne-demo/src/js_demo/原生事件绑定.html"
+    "livePreview.defaultPreviewPath": "/anne-demo/src/js_demo/原生事件绑定.html",
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages":{
+        "javascript":"javascriptreact"
+  
+    }
 }
