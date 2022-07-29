@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-07-21 14:19:59
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-07-21 17:46:55
+ * @LastEditTime: 2022-07-27 14:43:43
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,19 +22,21 @@
         // 1、创建组件
         class Weather extends React.Component {
 
-            state = { isHot: true, wind: '微风' };
-            // render调用几次？ ——1+n次，1是初始化那次，n是状态更新的次数
-            render() {
-                // 读取状态
-                const { isHot, wind } = this.state
-                return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}, {wind}</h1>
-            }
+            state = { isHot: true, wind: '微风' }
+            
             // 自定义方法——要用赋值语句+箭头函数的形式来写
             changeWeather = () => {
                 // debugger;
                 const isHot = this.state.isHot
                 // 状态不可直接更改，必须通过内置API-setSate去更改，且更新是一种合并，不是替换
                 this.setState({ isHot: !isHot })
+            }
+
+            // render调用几次？ ——1+n次，1是初始化那次，n是状态更新的次数
+            render() {
+                // 读取状态
+                const { isHot, wind } = this.state
+                return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}, {wind}</h1>
             }
         }
         // 2、渲染组件到页面

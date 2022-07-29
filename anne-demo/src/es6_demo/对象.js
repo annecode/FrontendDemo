@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-05-28 13:10:18
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-05-28 14:01:10
+ * @LastEditTime: 2022-07-27 15:40:23
  */
 
 /* 1、对象字面量
@@ -38,7 +38,8 @@ ES6允许用表达式作为属性名，但是一定要将表达式放在方括�
 属性的简洁表示法和属性名表达式不能同时使用，否则会报错 */
 const hello = "Hello";
 const obj1 = {
-    [hello + "1"]: "world"
+    [hello + "1"]: "world",
+    [hello]: "world"
 };
 // const obj2 = {
 //     [hello]
@@ -95,3 +96,8 @@ console.log(Object.is("q", "Q"));
 console.log(Object.is([1, 2], [1, 2]));
 console.log(Object.is({a: 1}, {a: 1}));
 console.log(Object.is(+0, -0)); //与(====)的区别
+
+let a = 'name';
+let myObj = {}
+myObj[a] = 'tom';
+console.log(myObj);

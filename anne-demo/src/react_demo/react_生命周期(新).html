@@ -1,0 +1,124 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-21 11:59:12
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-28 11:02:36
+-->
+<!DOCTYPE html>
+<html lang="ch-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>生命周期（旧）</title>
+    <script type="text/javascript" src="./17.0.1/react.development.js"></script>
+    <script type="text/javascript" src="./17.0.1/react-dom.development.js"></script>
+    <script type="text/javascript" src="./17.0.1/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+
+        class Count extends React.Component {
+
+            constructor(props) {
+                console.log('Count-constructor');
+                super(props)
+                this.state = { count: 0 }
+            }
+
+            add = () => {
+                const { count } = this.state
+                this.setState({ count: count + 1 })
+            }
+
+            // 卸载组件按钮的回调
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+
+            force = () => {
+                // 阀门关闭也可以进行强制更新，不更改状态中的数据
+                this.forceUpdate()
+            }
+
+            // 若state值任何时候都取决于props，那么可以使用getDerivedStateFromProps
+            static getDerivedStateFromProps(props, state) {
+                console.log('Count--getDerivedStateFromProps', props, state);
+                return null
+            }
+
+            // 在更新之前获取快照
+            getSnapshotBeforeUpdate() {
+                console.log('Count--getSnapshotBeforeUpdate');
+                return 'hello'
+            }
+
+            // 组件挂载完毕的钩子
+            componentDidMount() {
+                console.log('Count-componentDidMount');
+            }
+
+            // 控制组件更新的"阀门"（若不写，底层默认会有，返回值为true；若写，必须有返回值；若为false，不在执行后续钩子；为true，才继续执行）
+            shouldComponentUpdate() {
+                console.log('Count-shouldComponentUpdate');
+                return true
+            }
+
+            // 组件更新完毕的钩子(默认能接收到2个参数)，snapshot 是 getSnapshotBeforeUpdate 的返回值
+            componentDidUpdate(preProps, preState, snapshot) {
+                console.log('Count-componentDidUpdate', preProps, preState, snapshot);            
+            }
+
+            // 初始化渲染、状态更新之后
+            render() {
+                console.log('Count-render');
+                const { count } = this.state
+                return (
+                    <div>
+                        <h2>当前请求和为：{count}</h2>
+                        <button onClick={this.add}>点击加1</button>
+                        <button onClick={this.death}>卸载组件</button>
+                        <button onClick={this.force}>不更改状态中的数据，强制更新</button>
+                    </div>
+                )
+            }
+        }
+
+        class A extends React.Component {
+
+            state = { carName: '奔驰' }
+
+            changeCar = () => {
+                this.setState({ carName: '大众' })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <div>我是A组件</div>
+                        <button onClick={this.changeCar}>换车</button>
+                        <B carName={this.state.carName} test='hello' />   {/* 给B组件添加属性*/}
+                    </div>
+                )
+            }
+        }
+
+        class B extends React.Component {
+
+            render() {
+                console.log(this.props);
+                return (
+                    <div>我是B组件，接收到的车是：{this.props.carName}</div>
+                )
+
+            }
+        }
+
+        // 2、渲染组件到页面,name是props属性
+        ReactDOM.render(<Count name="111"/>, document.getElementById('test'))
+    </script>
+</body>
+
+</html>

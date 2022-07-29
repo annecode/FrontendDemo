@@ -1,0 +1,70 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-21 11:59:12
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-27 20:43:05
+-->
+<!DOCTYPE html>
+<html lang="ch-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>生命周期</title>
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+
+        class Life extends React.Component {
+
+            state = { opacity: 1 }
+            death = () => {
+                // 卸载组件
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+
+            // 组件挂载完毕，调用此方法，通过实例.ComponentDidMount调用；此方法与render同级，使用实例.render调用
+            componentDidMount() {
+                // 定时器
+                console.log('Life--componentDidMount');
+                this.timer = setInterval(() => {
+                    // 获取原状态
+                    let { opacity } = this.state
+                    // 减小0.1
+                    opacity -= 0.1
+                    if (opacity <= 0) opacity = 1
+                    // 设置新的透明度
+                    this.setState({ opacity })
+                }, 200);
+            }
+
+            // 组件将要卸载
+            componentWillUnmount() {
+                console.log('Life--componentWillUnmount')
+                // 清除定时器
+                clearInterval(this.timer)
+            }
+
+            // 初始化渲染、状态更新之后
+            render() {
+
+                console.log('Life--render')
+                return (
+                    <div>
+                        <h2 style={{ opacity: this.state.opacity }}>React太难了</h2>
+                        <button onClick={this.death}>搞死人啦</button>
+                    </div>
+                )
+            }
+        }
+        // 2、渲染组件到页面
+        ReactDOM.render(<Life />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>

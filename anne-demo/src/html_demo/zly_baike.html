@@ -36,6 +36,10 @@
             color: red;
             font-size: 16px;
         }
+
+        .textscoll {
+            overflow: auto;
+        }
     </style>
     <!-- 这里是注释文档，是我用来练习前端语法的demo -->
 </head>
@@ -45,12 +49,14 @@
         <h3>目录</h3>
         <form action="xxx.php" method="post" , name="name1">
             <!-- text 文本框 用户可以在里面输入任何文字 -->
-            <label for="cname">用户名：</label> <input type="text" name="username" value="请输入用户名" maxlength="6" id="cname"> <br>
+            <label for="cname">用户名：</label> <input type="text" name="username" value="请输入用户名" maxlength="6" id="cname">
+            <br>
             <!-- password 密码框 用户看不见输入的密码 -->
             <label for="pwd">密码：</label> <input type="password" name="password" maxlength="6" id="pwd"> <br>
             <!-- radio 单选按钮，可以实现多旋翼，name是表单元素名字，性别单选按钮必须有相同的名字name，才可实现多选一         -->
             <!-- 单选按钮和复选框可以设置checked属性，页面打开时可以默认选中这个按钮 -->
-            性别：女 <input type="radio" name="sex" value="男" checked="checked"> 男 <input type="radio" name="sex" value="女"> <br>
+            性别：女 <input type="radio" name="sex" value="男" checked="checked"> 男 <input type="radio" name="sex" value="女">
+            <br>
             <!-- checkbox 复选框 可以实现多选 -->
             爱好：吃饭<input type="checkbox" value="吃饭" checked="checked"> 睡觉 <input type="checkbox" value="睡觉"> <br>
             <!-- 点击提交按钮，可以把表单域form 里面的表单元素 里面的值 提交后后台服务器 -->
@@ -71,10 +77,15 @@
                 <option selected="selected">泰国</option>
             </select>
             <!-- textarea文本域，多行输入，实际开发不会设置cols和rows属性，一般通过css设置 -->
-            <textarea cols="20" rows="5">这是一个测试值呢</textarea>
-            
+            <textarea class="textscoll" cols="20"
+                rows="5">这是一个测试值呢，测试滚动条哈哈哈哈；这是一个测试值呢，测试滚动条哈哈哈哈；这是一个测试值呢，测试滚动条哈哈哈哈；这是一个测试值呢，测试滚动条哈哈哈哈</textarea>
+            <script>
+                const list = document.getElementsByClassName('list')[0]
+                list.scrollTop = 80
+                console.log(list.scrollHeight)
+            </script>
         </form>
-        
+
 
         <hr>
         <span><input type="text" value="请输入内容"><button onclick="alert('现在还不可以搜索呢')">搜索</button></span>

@@ -1,0 +1,53 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-28 17:23:48
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-28 17:41:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>验证Diffing算法</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="./17.0.1/react.development.js"></script>
+    <script type="text/javascript" src="./17.0.1/react-dom.development.js"></script>
+    <script type="text/javascript" src="./17.0.1/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Time extends React.Component {
+
+            state = { date: new Date() }
+
+            componentDidMount() {
+                setInterval(() => {
+                    this.setState({
+                        date: new Date()
+                    })
+                }, 1000);
+            }
+
+            render() {
+                return (
+                    // h1和input在页面上不会变，只会修改span标签，因为diff算法，可以找到不一致的标签进行修改(最小粒度是标签)
+                    <div>
+                        <h1>hello</h1>
+                        <input type="text" />
+                        <span>
+                            现在是：{this.state.date.toTimeString()}
+                            <input type="text" />
+                        </span>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Time />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>

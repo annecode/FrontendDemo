@@ -1,0 +1,52 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-21 11:59:12
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-27 10:51:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>组件实例三大核心属性之createRef</title>
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        // 1、创建组件
+        class MyComponent extends React.Component {
+            
+            // React.createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点
+            MyRef = React.createRef()
+            MyRef2 = React.createRef()
+
+            showData = () => {
+                alert(this.MyRef.current.value)
+                // console.log(this.MyRef);
+            }
+            showData2 = () => {
+                alert(this.MyRef2.current.value)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <input ref={this.MyRef} type="text" placeholder="点击按钮提示数据" />&nbsp;
+                        <button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+                        <input ref={this.MyRef2} type="text" onBlur={this.showData2} placeholder="失去焦点提示数据" />&nbsp;
+                    </div>
+                )
+            }
+        }
+        // 2、渲染组件到页面
+        ReactDOM.render(<MyComponent a="1" b="2" />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>

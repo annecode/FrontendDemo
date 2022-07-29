@@ -1,0 +1,63 @@
+<!--
+ * @Author: anne.yang
+ * @Date: 2022-07-21 11:59:12
+ * @LastEditors: anne.yang
+ * @LastEditTime: 2022-07-27 20:35:24
+-->
+<!DOCTYPE html>
+<html lang="ch-en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>生命周期（旧）</title>
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+
+        class A extends React.Component {
+
+            state = { carName: '奔驰' }
+
+            changeCar = () => {
+                this.setState({ carName: '大众' })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <div>我是A组件</div>
+                        <button onClick={this.changeCar}>换车</button>
+                        <B carName={this.state.carName} test='hello'/>   {/* 给B组件添加属性*/}
+                    </div>
+                )
+            }
+        }
+
+        class B extends React.Component {
+
+            // 初始化时调用不生效，更改状态后调用render才会生效
+            // 组件将要接收新的props的钩子
+            componentWillReceiveProps() {
+                console.log('B--componentWillReceiveProps');
+            }
+            render() {
+                console.log(this.props);
+                return (
+                    <div>我是B组件，接收到的车是：{this.props.carName}</div>
+                )
+
+            }
+        }
+
+        // 2、渲染组件到页面
+        ReactDOM.render(<A />, document.getElementById('test'))
+    </script>
+</body>
+
+</html>
