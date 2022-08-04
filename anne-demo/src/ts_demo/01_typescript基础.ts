@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-08-04 22:08:31
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-08-04 23:04:28
+ * @LastEditTime: 2022-08-04 23:07:24
  */
 
 // 声明一个变量a，同事指定他的类型为number
