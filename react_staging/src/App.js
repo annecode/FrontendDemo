@@ -2,7 +2,7 @@
  * @Author: anne.yang
  * @Date: 2022-07-29 11:39:07
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-08-03 18:52:55
+ * @LastEditTime: 2022-08-04 14:48:48
  */
 // 创建“外壳”组件App
 import React, { Component } from "react";
@@ -55,6 +55,29 @@ export default class App extends Component {
             return todoObj.id !== id
         })
         // 更新状态
+        this.setState({ todos: newTodos })
+    }
+
+    // 检查全选
+    checkAllTodo = (done) => {
+        // 获取原来的todos
+        const { todos } = this.state
+        // 加工数据
+        const newTodos = todos.map((todoObj) => {
+            return { ...todoObj, done }
+        })
+        // 更新状态
+        this.setState({ todos: newTodos })
+    }
+
+    // 清除所有已完成的任务，返回未完成的任务
+    clearAllDone = () => {
+        const { todos } = this.state
+        // 过滤数据
+        const newTodos = todos.filter((todoObj) => {
+            return !todoObj.done
+        })
+        // 更新状态
         this.setState({todos: newTodos})
     }
 
@@ -65,7 +88,7 @@ export default class App extends Component {
                 <div className="todo-wrap">
                     <Header addTodo={this.addTodo} />
                     <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
-                    <Footer />
+                    <Footer todos={todos} checkAllTodo={this.checkAllTodo} clearAllDone={this.clearAllDone} />
                 </div>
             </div>
         )
