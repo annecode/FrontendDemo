@@ -1,19 +1,26 @@
 /*
  * @Author: anne.yang
- * @Date: 2022-07-29 11:39:07
+ * @Date: 2022-08-04 18:11:06
  * @LastEditors: anne.yang
- * @LastEditTime: 2022-07-30 16:19:34
+ * @LastEditTime: 2022-08-04 21:53:28
  */
-// 创建“外壳”组件App
-import React, {Component} from "react";
+import React, { Component } from 'react';
+import axios from 'axios'
 
-// 创建并暴露App组件
 export default class App extends Component {
-    render() {
-        return (
-            <div>
-                <div>Hello, React!</div>
-            </div>
+
+    getStudentData = () => {
+        axios.get('http://localhost:5000/students').then(
+            response => {console.log('成功了', response.data);},
+            error => {console.log('失败了', error);}
         )
+        
     }
+  render() {
+    return (
+      <div>
+        <button onClick={this.getStudentData}>点我获取学生数据</button>
+      </div>
+    )
+  }
 }
